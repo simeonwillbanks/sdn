@@ -11,8 +11,8 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', '  ~> 3.1.0'
+  gem 'coffee-rails', '~> 3.1.0'
   gem 'uglifier'
 end
 
@@ -34,7 +34,8 @@ end
 
 group :development, :test do
   gem 'database_cleaner'
-  gem "rspec-rails", "~> 2.4"
-  gem "cucumber-rails", "~> 1.0.5"
-  gem "webrat"
+  gem 'rspec-rails', '~> 2.4'
+  gem 'cucumber-rails', '~> 1.0.5'
+  gem 'webrat'
+  gem 'spork'
 end  
