@@ -31,3 +31,9 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.4"
+  gem "cucumber-rails", "~> 1.0.5"
+  gem "webrat"
+end  
