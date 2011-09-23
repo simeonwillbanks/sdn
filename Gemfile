@@ -37,5 +37,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.4'
   gem 'cucumber-rails', '~> 1.0.5'
   gem 'webrat'
-  gem 'spork'
+  gem 'spork', '~> 0.9.0.rc9'
 end  
