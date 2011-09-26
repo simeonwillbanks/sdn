@@ -35,6 +35,7 @@ end
 
 group :development do
   gem 'haml-rails'
+  gem 'pry'
 end
 
 group :development, :test do
