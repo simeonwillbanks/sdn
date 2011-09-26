@@ -43,4 +43,5 @@ group :development, :test do
   gem 'cucumber-rails', '~> 1.0.5'
   gem 'webrat'
   gem 'spork', '~> 0.9.0.rc9'
+  gem 'foreman', '~> 0.22.0'
 end  
