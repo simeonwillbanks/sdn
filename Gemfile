@@ -33,11 +33,11 @@ end
 
 group :development do
   gem 'haml-rails'
-  gem 'pry'
 end
 
 group :development, :test do
   gem 'database_cleaner'
+  gem 'pry'
   gem 'rspec-rails', '~> 2.4'
   gem 'cucumber-rails', '~> 1.0.5'
   gem 'webrat'
