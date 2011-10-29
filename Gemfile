@@ -16,6 +16,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'pg'
+gem 'devise'
 
 # Use unicorn as the web server
 # gem 'unicorn'
