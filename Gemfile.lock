@@ -90,6 +90,7 @@ GEM
     method_source (0.6.7)
       ruby_parser (>= 2.3.1)
     mime-types (1.17.2)
+    minitest (2.7.0)
     multi_json (1.0.3)
     nokogiri (1.5.0)
     pg (0.11.0)
@@ -189,6 +190,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails
+  minitest
   pg
   pry
   rails
