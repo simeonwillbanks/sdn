@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -8,8 +8,8 @@ gem 'rails', '3.1.0'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', '  ~> 3.1.0'
-  gem 'coffee-rails', '~> 3.1.0'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 
@@ -36,11 +36,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'database_cleaner'
   gem 'pry'
-  gem 'rspec-rails', '~> 2.4'
-  gem 'cucumber-rails', '~> 1.0.5'
-  gem 'webrat'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'capybara'
   gem 'spork', '~> 0.9.0.rc9'
-  gem 'foreman', '~> 0.22.0'
+  gem 'foreman'
 end  
