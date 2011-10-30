@@ -49,4 +49,5 @@ group :development, :test do
   gem 'capybara'
   gem 'spork', '~> 0.9.0.rc9'
   gem 'foreman'
+  gem 'silent-postgres'
 end  
