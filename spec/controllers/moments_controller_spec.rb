@@ -6,7 +6,7 @@ describe MomentsController do
     context "Allowed" do
       login_admin
       let(:moment) { mock_model(Moment).as_null_object }
-      before { Moment.stub(:new).and_return(:moment) }
+      before { Moment.stub(:new).and_return(moment) }
       
       it "as an authenticated admin" do
         subject.current_user.admin?.should be_true
