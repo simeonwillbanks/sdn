@@ -50,4 +50,9 @@ group :development, :test do
   gem 'spork', '~> 0.9.0.rc9'
   gem 'foreman'
   gem 'silent-postgres'
+  gem 'rb-fsevent'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
 end  
