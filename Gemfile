@@ -24,9 +24,6 @@ gem 'devise'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
@@ -40,6 +37,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'pry'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
