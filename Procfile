@@ -1,2 +1,2 @@
 web:    bundle exec rails server
-spork:  bundle exec spork cuc
+spork:  bundle exec spork 
