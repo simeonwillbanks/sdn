@@ -31,6 +31,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'minitest'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -41,6 +42,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'cucumber'
   gem 'cucumber-rails'
