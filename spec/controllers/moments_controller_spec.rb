@@ -3,7 +3,10 @@ require 'spec_helper'
 describe MomentsController do
 
   describe "POST 'create'" do
-    context "Allowed" do
+    let(:moment) { mock_model(Moment).as_null_object }
+    before { Moment.stub(:new).and_return(moment) }
+      
+    context "Allowed via login" do
       login_admin
       let(:moment) { mock_model(Moment).as_null_object }
       before { Moment.stub(:new).and_return(moment) }
@@ -21,7 +24,15 @@ describe MomentsController do
       end
       it "and redirects to home" do
         post :create 
-        response.should redirect_to(:controller => "home", :action => "index")
+        response.should redirect_to root_url
+      end
+    end
+    
+    context "Allowed via token" do
+      it "an authenticated admin can create a moment" do
+        moment.should_receive(:save)
+        admin = Factory(:admin)
+        post :create, :auth_token => admin.authentication_token
       end
     end
     
@@ -34,7 +45,7 @@ describe MomentsController do
           subject.current_user.should_not be_nil
         end      
         it "but they are redirected to home" do
-          response.should redirect_to(:controller => "home", :action => "index")
+          response.should redirect_to root_url
         end
       end
 
@@ -44,8 +55,8 @@ describe MomentsController do
         it "a current user does not exist" do
            subject.current_user.should be_nil
         end
-        it "and they are redirected to home" do
-          response.should redirect_to(:controller => "home", :action => "index")          
+        it "and they are redirected to sign in" do
+          response.should redirect_to new_user_session_url
         end
       end
     end

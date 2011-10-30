@@ -1,4 +1,5 @@
 class MomentsController < ApplicationController
+  prepend_before_filter :authenticate_user!
   before_filter :authenticate_admin!
 
   def create

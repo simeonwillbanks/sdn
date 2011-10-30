@@ -8,6 +8,7 @@ FactoryGirl.define do
 
   factory :admin, :parent => :user do
     admin true
+    authentication_token 'p6oDkqn2LVpVU3UvDJYz'
   end
 end
 
