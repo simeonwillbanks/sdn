@@ -1,4 +1,6 @@
 Sdn::Application.routes.draw do
+  resources :moments, :only => [:create]
+
   devise_for :users
 
   root :to => "home#index"
