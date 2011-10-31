@@ -44,8 +44,8 @@ describe MomentsController do
         it "a current user exists" do
           subject.current_user.should_not be_nil
         end      
-        it "but they are redirected to home" do
-          response.should redirect_to root_url
+        it "but they are unauthorized" do
+          response.code.should eq('401')
         end
       end
 

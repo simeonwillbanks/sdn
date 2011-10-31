@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
   protected
     def authenticate_admin!
-      redirect_to root_path unless user_signed_in? and current_user.admin?
+      render :file => "public/401.html", :status => :unauthorized unless user_signed_in? and current_user.admin?
     end
 end
