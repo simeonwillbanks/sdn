@@ -29,6 +29,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  # TODO load factories on each run
   require 'factory_girl_rails' 
 end
 

@@ -11,9 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111030192640) do
+ActiveRecord::Schema.define(:version => 20111101153009) do
 
   create_table "moments", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "subject_id"
+    t.string   "subject_type"
+  end
+
+  add_index "moments", ["subject_id"], :name => "index_moments_on_subject_id"
+  add_index "moments", ["subject_type"], :name => "index_moments_on_subject_type"
+
+  create_table "posts", :force => true do |t|
+    t.string   "headline"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

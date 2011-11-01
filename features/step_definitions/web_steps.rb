@@ -252,3 +252,8 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Then /^the response is successful$/ do
+  last_response.status.should == 200
+end
+
