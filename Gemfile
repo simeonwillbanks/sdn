@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'pg'
 gem 'devise'
+gem 'inherited_resources'
 
 # Use unicorn as the web server
 # gem 'unicorn'
