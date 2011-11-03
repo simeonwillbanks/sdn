@@ -1,27 +1,22 @@
-Given /^I am an admin$/ do
-  @admin = Factory(:admin)
+Given /^I have a new "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
+  # Use .to_json since POST request except params to be JSON string
+  @moment = Factory(moment.to_sym, attribute.to_sym => value).to_json(:except => [:id, :created_at, :updated_at])
 end
 
-When /^I make an authenticated request for a new moment$/ do
-  post moments_path, :auth_token => @admin.authentication_token
-  follow_redirect!
+When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
+  path = send("#{moment.pluralize}_url".to_sym) 
+  post "#{path}?auth_token=#{@admin.authentication_token}", @moment 
 end
 
-Then /^I am redirected$/ do
-  last_response.should_not be_redirect
-  last_request.env["HTTP_REFERER"].should include(moments_path)
+Then /^the "([^"]*)" is created$/ do |moment|
+  last_response.status.should == 201
 end
 
-Then /^I see the message "([^"]*)"$/ do |msg|
-  last_response.body.should include(msg)
+Then /^the request is not accepted$/ do
+  last_response.status.should == 406 
 end
 
-# Does not appear to hold session on subsequent request
-# This step might need to be refactored
-Given /^I am an authenticated admin$/ do
-  @admin = Factory(:admin)
-  visit new_user_session_url
-  fill_in('Email', :with => @admin.email)
-  fill_in('Password', :with => "foobar")
-  click_button('Sign in')
+Then /^the response should be unauthorized$/ do
+ last_response.status.should == 401 
 end
+

@@ -4,8 +4,15 @@ Feature: Moment Creation
   I want to create a moment 
   So that SDN can display the moment
 
-  Scenario: create moment from one time request
+  Scenario: create a moment as a post via JSON 
     Given I am an admin
-    When I make an authenticated request for a new moment
-    Then I am redirected  
-    And I see the message "Moment successfully created"
+    And I send and accept JSON
+    And I have a new "post" with the "headline" "My Dog Is Awesome" 
+    When I make an authenticated request to create the "post"
+    Then the "post" is created
+    And the response is a JSON hash with the key "headline" whose value is "My Dog Is Awesome"
+
+  Scenario: create a moment as a post via HTML
+    Given I am an admin
+    When I make an authenticated request to create the "post"
+    Then the request is not accepted

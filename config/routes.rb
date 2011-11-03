@@ -1,6 +1,5 @@
 Sdn::Application.routes.draw do
 
-  resources :moments, :only => [:create]
   resources :posts, :only => [:show, :create]
 
   devise_for :users
