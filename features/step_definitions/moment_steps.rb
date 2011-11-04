@@ -1,6 +1,6 @@
 Given /^I have a new "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
   # Use .to_json since POST request except params to be JSON string
-  @moment = Factory(moment.to_sym, attribute.to_sym => value).to_json(:except => [:id, :created_at, :updated_at])
+  @moment = Factory.build(moment.to_sym, attribute.to_sym => value).to_json(:except => [:id, :created_at, :updated_at])
 end
 
 When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
