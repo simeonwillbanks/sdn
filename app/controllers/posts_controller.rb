@@ -1,3 +1,3 @@
 class PostsController < InheritedResources::Base
-  include Momentable
+  include MomentsApi
 end

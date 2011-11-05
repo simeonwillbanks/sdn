@@ -1,4 +1,4 @@
-module Momentable
+module MomentsApi
   extend ActiveSupport::Concern
   included do
     prepend_before_filter :authenticate_user!
