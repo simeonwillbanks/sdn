@@ -18,6 +18,7 @@ gem 'haml'
 gem 'pg'
 gem 'devise'
 gem 'inherited_resources'
+gem 'acts-as-taggable-on'
 
 # Use unicorn as the web server
 # gem 'unicorn'
