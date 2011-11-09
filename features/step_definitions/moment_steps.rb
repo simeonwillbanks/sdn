@@ -5,8 +5,8 @@ Given /^I have a new "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attrib
 end
 
 When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
-  path = send("#{moment.pluralize}_url".to_sym) 
-  post "#{path}?auth_token=#{@admin.authentication_token}", @moment.to_json
+  url = send("#{moment.pluralize}_url".to_sym) 
+  post "#{url}?auth_token=#{@admin.authentication_token}", @moment.to_json
 end
 
 Then /^the "([^"]*)" is created$/ do |moment|
@@ -21,3 +21,7 @@ Then /^the response should be unauthorized$/ do
  last_response.status.should == 401
 end
 
+When /^I visit a "([^"]*)"$/ do |moment|
+  @moment = Factory(moment.to_sym)
+  visit send("#{moment}_url".to_sym, @moment) 
+end

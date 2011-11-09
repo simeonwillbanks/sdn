@@ -6,3 +6,14 @@ FactoryGirl.define do
     body "MyText"
   end
 end
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer         not null, primary key
+#  headline   :string(255)
+#  body       :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -1,8 +1,8 @@
 module MomentsApi
   extend ActiveSupport::Concern
   included do
-    prepend_before_filter :authenticate_user!
-    before_filter :authenticate_admin!
+    prepend_before_filter :authenticate_user!, :only => :create
+    before_filter :authenticate_admin!, :only => :create
     actions :show, :create 
     respond_to :json
     respond_to :html, :only => :show

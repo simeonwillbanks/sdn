@@ -1,6 +1,8 @@
 Sdn::Application.routes.draw do
 
-  resources :posts, :only => [:show, :create]
+  resources :posts, :only => [:show, :create] do
+    resources :comments, :only => [:create]
+  end
 
   devise_for :users
 
