@@ -9,6 +9,28 @@ When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
   post "#{url}?auth_token=#{@admin.authentication_token}", @moment.to_json
 end
 
+When /^I visit a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
+  @moment = Factory(moment.to_sym, attribute.to_sym => value)
+  visit send("#{moment}_url".to_sym, @moment) 
+end
+
+When /^I visit the index of "([^"]*)"$/ do |moments|
+  @moments = (1..3).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym) }
+  visit send("#{moments}_url".to_sym)
+end
+
+Then /^SDN displays the "([^"]*)"$/ do |arg1|
+  @moments.each do |moment|
+    moment.serializable_hash(:except => [:id,:created_at,:updated_at]).each do |key, attribute| 
+      page.should have_content(attribute) 
+    end
+  end
+end
+
+Then /^SDN displays the "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
+  page.should have_content(value)
+end
+
 Then /^the "([^"]*)" is created$/ do |moment|
   last_response.status.should == 201
 end

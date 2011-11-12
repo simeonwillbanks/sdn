@@ -3,9 +3,9 @@ module MomentsApi
   included do
     prepend_before_filter :authenticate_user!, :only => :create
     before_filter :authenticate_admin!, :only => :create
-    actions :show, :create 
+    actions :index, :show, :create 
     respond_to :json
-    respond_to :html, :only => :show
+    respond_to :html, :only => [:index, :show]
   end
   module InstanceMethods
     protected

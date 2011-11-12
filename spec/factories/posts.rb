@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :post do
-    headline "MyString"
-    body "MyText"
+    sequence(:headline) { |n| "My Headline #{n}" }  
+    sequence(:body)     { |n| "Body #{n}" * 10 }  
   end
 end
 # == Schema Information
