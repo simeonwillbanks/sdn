@@ -4,6 +4,9 @@ class CommentsController < InheritedResources::Base
   def create
     @comment = end_of_association_chain.new params[:comment]
     @comment.user = current_user
-    create! { parent_url }
+    create! do |success, failure|
+      success.html { redirect_to parent_url }
+      failure.html { redirect_to parent_url, :alert => "Comment requires a body." }
+    end
   end
 end

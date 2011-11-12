@@ -4,8 +4,16 @@ When /^I create a commment which says "([^"]*)"$/ do |body|
   click_button('New Comment')
 end
 
-Then /^the "([^"]*)" displays the comment$/ do |comment|
-  page.should have_no_content(comment)
+When /^I create a empty commment$/ do
+  click_button('New Comment')
+end
+
+Then /^the "([^"]*)" displays the comment which says "([^"]*)"$/ do |moment, body|
+  page.should have_content(body)
+end
+
+Then /^the "([^"]*)" alerts "([^"]*)"$/ do |moment, alert|
+  page.should have_content(alert)
 end
 
 Then /^I can not create a new comment$/ do
