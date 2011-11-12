@@ -14,7 +14,7 @@ Feature: Moment Comments
     Given I am a signed in user
     When I visit a "post" 
     And I create a empty commment
-    Then the "post" alerts "Comment requires a body." 
+    Then the "post" alerts "Comment body can't be blank" 
 
   Scenario: guest can not create a comment for the moment type post 
     Given I am a guest
