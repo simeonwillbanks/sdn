@@ -2,6 +2,8 @@
 
 FactoryGirl.define do
   factory :moment do
+    subject_type 'Post'
+    association :subject, :factory => :post
   end
 end
 # == Schema Information

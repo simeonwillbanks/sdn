@@ -1,5 +1,3 @@
 class HomeController < ApplicationController
-  def index
-  end
-
+  expose(:moments) { HomePresenter.new(Moment.all) }
 end

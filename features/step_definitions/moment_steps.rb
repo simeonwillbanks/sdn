@@ -19,6 +19,10 @@ When /^I visit the index of "([^"]*)"$/ do |moments|
   visit send("#{moments}_url".to_sym)
 end
 
+When /^I know SDN has a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
+  @moment = Factory(moment.to_sym, attribute.to_sym => value)
+end
+
 Then /^SDN displays the "([^"]*)"$/ do |arg1|
   @moments.each do |moment|
     moment.serializable_hash(:except => [:id,:created_at,:updated_at]).each do |key, attribute| 
@@ -41,6 +45,12 @@ end
 
 Then /^the response should be unauthorized$/ do
  last_response.status.should == 401
+end
+
+Then /^the "([^"]*)" "([^"]*)" is shortened to an abstract$/ do |moment, attribute|
+  content = @moment.send(attribute)
+  page.should have_content(content[0..10].chop)
+  page.should_not have_content(content)
 end
 
 When /^I visit a "([^"]*)"$/ do |moment|
