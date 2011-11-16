@@ -15,13 +15,11 @@ class HomePresenter
   def moments_factory
     @moments = @collection.inject([]) do |moments, moment|
       moments << decorate(moment.subject_type, moment.subject)
-      moments
     end
   end
 
   def decorate(type, moment)
-    decorator = "#{type}Decorator".constantize
-    decorator.decorate moment
+    "#{type}Decorator".constantize.decorate moment
   end
 
 end
