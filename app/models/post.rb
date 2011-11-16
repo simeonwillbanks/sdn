@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   include Momentable
+
   validates_presence_of :headline, :body
 end
 # == Schema Information
