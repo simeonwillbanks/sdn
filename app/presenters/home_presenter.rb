@@ -3,20 +3,17 @@ class HomePresenter
 
   def initialize(collection)
     @collection = collection
-    moments_factory
   end
 
-  def each &blk
-    @moments.each &blk
+  def each &block
+    @collection.each { |moment| block.call(decorate(moment.subject_type, moment.subject)) } 
+  end
+
+  def method_missing(*args, &block)
+    @collection.send(*args, &block)
   end
 
   private
-
-  def moments_factory
-    @moments = @collection.inject([]) do |moments, moment|
-      moments << decorate(moment.subject_type, moment.subject)
-    end
-  end
 
   def decorate(type, moment)
     "#{type}Decorator".constantize.decorate moment

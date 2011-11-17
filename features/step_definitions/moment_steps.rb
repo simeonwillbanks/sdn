@@ -15,7 +15,7 @@ When /^I visit a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute,
 end
 
 When /^I visit the index of "([^"]*)"$/ do |moments|
-  @moments = (1..3).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym) }
+  @moments = (1..14).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym) }
   visit send("#{moments}_url".to_sym)
 end
 
@@ -24,7 +24,8 @@ When /^I know SDN has a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, att
 end
 
 Then /^SDN displays the "([^"]*)"$/ do |arg1|
-  @moments.each do |moment|
+  # Only look for moments on first page in reverse order because of default scope
+  @moments.reverse[0..(WillPaginate.per_page - 1)].each do |moment|
     moment.serializable_hash(:except => [:id,:created_at,:updated_at]).each do |key, attribute| 
       page.should have_content(attribute) 
     end
@@ -57,3 +58,11 @@ When /^I visit a "([^"]*)"$/ do |moment|
   @moment = Factory(moment.to_sym)
   visit send("#{moment}_url".to_sym, @moment) 
 end
+
+Then /^SDN displays pagination$/ do
+  # <em class="current">1</em>
+  find('em.current').should have_content('1')
+  # <a href="./?page=2" rel="next">2</a>
+  find('a[rel="next"]').should have_content('2')
+end
+

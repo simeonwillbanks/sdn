@@ -1,3 +1,3 @@
 class HomeController < ApplicationController
-  expose(:moments) { HomePresenter.new(Moment.all) }
+  expose(:moments) { HomePresenter.new(MomentsPresenter.index(params)) }
 end

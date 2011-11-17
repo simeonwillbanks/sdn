@@ -1,3 +1,3 @@
-class PostsPresenter
+class MomentsPresenter
   extend IndexPresenter
 end

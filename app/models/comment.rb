@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Comment < DefaultScope
   belongs_to :user
   belongs_to :commentable, :polymorphic => true
   validates_presence_of :body, :user

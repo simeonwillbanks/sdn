@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe PostsPresenter do
-  it "should have some specs"
+  
+  subject { PostsPresenter }
+  let(:model) { Post }
+
+  it_behaves_like "index presenter"
+
 end

@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Post < DefaultScope
   include Momentable
 
   validates_presence_of :headline, :body

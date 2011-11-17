@@ -1,4 +1,4 @@
-class Moment < ActiveRecord::Base
+class Moment < DefaultScope
   belongs_to :subject, :polymorphic => true
 end
 # == Schema Information

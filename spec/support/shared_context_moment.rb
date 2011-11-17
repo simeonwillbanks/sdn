@@ -1,5 +1,6 @@
 shared_context "moment" do
   let(:new_moment) { Factory(moment) }
+  before { new_moment }
   describe "GET 'index'" do
     before(:each) do 
       get :index

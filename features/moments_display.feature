@@ -13,3 +13,4 @@ Feature: Show Moments
     Given I am a guest
     When I visit the index of "posts"
     Then SDN displays the "posts"
+    And SDN displays pagination

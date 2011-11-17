@@ -21,6 +21,7 @@ gem 'inherited_resources'
 gem 'acts-as-taggable-on'
 gem 'draper'
 gem 'decent_exposure'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'
