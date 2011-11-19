@@ -20,7 +20,7 @@ shared_examples_for "a type of moment" do
     model.moments.first.subject_type.should == type
   end
   it "on subsequent save, it still has a single Moment" do
-    model.update_attributes(:headline => "version 2")
+    model.update_attributes(:updated_at => 2.days.ago)
     model.moments.size.should == 1
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119041511) do
+ActiveRecord::Schema.define(:version => 20111119213336) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(:version => 20111119041511) do
   create_table "posts", :force => true do |t|
     t.string   "headline"
     t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "songs", :force => true do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.string   "listen"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
