@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe User do
   before { Factory(:user) }
+  it { should validate_presence_of(:name) }
+  it { should_not allow_value("blah").for(:website) }
+  it { should allow_value("http://simeons.net").for(:website) }
+  it { should allow_value("").for(:website) }
   it { should validate_presence_of(:email) }
   it { should validate_uniqueness_of(:email) }
   it { should_not allow_value("blah").for(:email) }

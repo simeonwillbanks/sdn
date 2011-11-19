@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :website, :email, :password, :password_confirmation, :remember_me
+
+  validates_presence_of :name
+  validates_format_of :website, :with => URI::regexp(%w(http https)), :if => lambda { website? }
+
   has_many :comments
 end
 # == Schema Information
