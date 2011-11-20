@@ -39,6 +39,7 @@ end
 group :development do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'haml-rails'
+  gem 'forgery'
 end
 
 group :development, :test do
