@@ -13,9 +13,9 @@ Feature: Moment Creation
     And the response is a JSON hash with the key "<attribute>" whose value is "<value>"
 
     Examples:
-      | moment    | attribute   | value               |
-      | post      | headline    | My Dog Is Awesome   |
-      | song      | title       | Southbound          |
+      | moment | attribute | value |
+      | post | headline | My Dog Is Awesome |
+      | song | title | Southbound |
 
   Scenario Outline: create a moment via HTML
     Given I am an admin
@@ -23,6 +23,6 @@ Feature: Moment Creation
     Then the request is not accepted
 
     Examples:
-      | moment    | 
-      | post      |
-      | song      |
+      | moment |
+      | post |
+      | song |

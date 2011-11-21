@@ -2,6 +2,22 @@ class MomentGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
   argument :columns, :type => :hash, :default => {}
 
+  def create
+    resource
+    decorator
+    partial
+  end
+
+  def edit
+    route
+    resource_controller
+    resource_model
+    comments_controller
+    features
+  end
+
+  private 
+
   def resource
     args = [capital_name]
     args << columns.inject('') { |opts, col| opts << " #{col[0]}:#{col[1]}" } unless columns.empty?
@@ -13,50 +29,89 @@ class MomentGenerator < Rails::Generators::NamedBase
     generate "draper:decorator", capital_name
   end
 
-  def rewrite_route
+  def route
     gsub_file 'config/routes.rb', /(resources :#{plural_name}\n)/, ''
     gsub_file 'config/routes.rb', /( :only => \[:index)/, " :#{plural_name},\\1"
   end
 
-  def rewrite_model
+  def resource_model
     gsub_file "app/models/#{singular_name}.rb", /ActiveRecord::Base/, "DefaultScope\n\tinclude Momentable"
-    gsub_file "spec/models/#{singular_name}_spec.rb", /pending "add some examples to \(or delete\) \#\{__FILE__\}"/, "context 'validations' do\n\n\tend\n\n\tlet(:type) { '#{capital_name}' }\n\tlet(:model) { Factory(:#{singular_name}) }\n\tit_behaves_like 'a type of moment'"
+    gsub_file "spec/models/#{singular_name}_spec.rb", /do.*/m, <<-SPEC
+do
+  context 'validations' do
+
   end
 
-  def rewrite_controller
+  let(:type) { '#{capital_name}' }
+  let(:model) { Factory(:#{singular_name}) }
+  it_behaves_like 'a type of moment'
+end
+    SPEC
+  end
+
+  def resource_controller
     gsub_file "app/controllers/#{plural_name}_controller.rb", /ApplicationController/, "InheritedResources::Base\n\tinclude MomentsApi"
-    gsub_file "spec/controllers/#{plural_name}_controller_spec.rb", /do\n/, "do\n\tlet(:moment) { :#{singular_name} }\n\tinclude_context 'moment'"
+    gsub_file "spec/controllers/#{plural_name}_controller_spec.rb", /do.*/m, <<-SPEC
+do
+  let(:moment) { :#{singular_name} }
+  include_context 'moment'
+end
+    SPEC
   end
 
-  def touch_partial
+  def partial
     copy_file "partial.html.haml", "app/views/#{plural_name}/_#{singular_name}.html.haml"
   end
 
-  def edit_comments_controller
-    gsub_file "app/controllers/comments_controller.rb", /(belongs_to :post, :polymorphic => true\n)/, "\\1\tbelongs_to :#{singular_name}, :ploymorphic => true\n"
+  def comments_controller
+    insert_into_file "app/controllers/comments_controller.rb", :after => "belongs_to :post, :polymorphic => true\n" do
+      "\tbelongs_to :#{singular_name}, :ploymorphic => true\n"
+    end
   end
 
-  def add_examples
-    gsub_file "features/home_page.feature", /(\| moment    \| attribute   \| value               \|\n)/, "\\1\t\t\t| #{singular_name} | #{moment_attribute} | #{dummy_text} |\n"
-    gsub_file "features/moment_comments.feature", /(\| moment    \|\n)/, "\\1\t\t\t| #{singular_name} |\n"
-    gsub_file "features/moments_display.feature", /(\| moment    \| attribute   \| value               \|\n)/, "\\1\t\t\t| #{singular_name} | #{moment_attribute} | #{dummy_text} |\n"
-    gsub_file "features/moment_creation.feature", /(\| moment    \| attribute   \| value               \|\n)/, "\\1\t\t\t| #{singular_name} | #{moment_attribute} | #{dummy_text} |\n"
-    gsub_file "features/moment_creation.feature", /(\| moment    \|\n)/, "\\1\t\t\t| #{singular_name} |\n"
-    gsub_file "features/moment_tags.feature", /(\| moment    \| attribute   \| value               \| tags            \|\n)/, "\\1\t\t\t| #{singular_name} | #{moment_attribute} | #{dummy_text} | #{dummy_text}, #{dummy_text} |\n"
+  def features 
+    insert_into_file "features/home_page.feature", :after => example_header(['moment','attribute','value']) do
+      example_row [singular_name, moment_attribute, sentence]
+    end
+    insert_into_file "features/moment_comments.feature", :after => example_header(['moment']) do 
+      example_row [singular_name]
+    end
+    insert_into_file "features/moments_display.feature", :after => example_header(['moment','attribute','value']) do
+      example_row [singular_name, moment_attribute, sentence]
+    end
+    insert_into_file "features/moment_creation.feature", :after => example_header(['moment','attribute','value']) do
+      example_row [singular_name, moment_attribute, sentence]
+    end
+    insert_into_file "features/moment_creation.feature", :after => example_header(['moment']) do
+      example_row [singular_name]
+    end
+    insert_into_file "features/moment_tags.feature", :after => example_header(['moment','attribute','value', 'tags']) do
+      example_row [singular_name, moment_attribute, sentence, "#{word}, #{word}"]
+    end
   end
 
-  private
+  def example_header(columns)
+    "| #{columns.join(' | ')} |\n"
+  end
+
+  def example_row(columns)
+    "\t\t\t#{example_header(columns)}"
+  end
 
   def capital_name
-    @capital_name ||= singluar_name.capitalize
+    @capital_name ||= singular_name.capitalize
   end
 
   def moment_attribute
-    columns.first.first
+    @moment_attribute ||= columns.first.first
   end
 
-  def dummy_text
-    Forgery(:basic).text
+  def sentence
+    Forgery(:lorem_ipsum).sentence(:random => true)
+  end
+
+  def word
+    Forgery(:lorem_ipsum).word(:random => true)
   end
 
 end

@@ -15,7 +15,7 @@ Feature: Moment Tags
     And an array of tags whose members are "<tags>"
 
     Examples:
-      | moment    | attribute   | value               | tags            |
-      | post      | headline    | My Dog Is Awesome   | dog, companion  |
-      | song      | title       | Southbound          | rock, allmans   |
+      | moment | attribute | value | tags |
+      | post | headline | My Dog Is Awesome | dog, companion |
+      | song | title | Southbound | rock, allmans |
 

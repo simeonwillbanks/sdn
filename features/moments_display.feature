@@ -10,9 +10,9 @@ Feature: Show Moments
     Then SDN displays the "<moment>" with the "<attribute>" "<value>"
 
     Examples:
-      | moment    | attribute   | value               |
-      | post      | headline    | My Dog Is Awesome   |
-      | song      | title       | Southbound          |
+      | moment | attribute | value |
+      | post | headline | My Dog Is Awesome |
+      | song | title | Southbound |
 
   Scenario Outline: visit the moments section
     Given I am a guest
@@ -21,6 +21,6 @@ Feature: Show Moments
     And SDN displays pagination
 
     Examples:
-      | moment    | attribute   | value               |
-      | post      | headline    | My Dog Is Awesome   |
-      | song      | title       | Southbound          |
+      | moment | attribute | value |
+      | post | headline | My Dog Is Awesome |
+      | song | title | Southbound |

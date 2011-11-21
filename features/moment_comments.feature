@@ -11,9 +11,9 @@ Feature: Moment Comments
     Then the "<moment>" displays the comment which says "I love this moment. Its so Awesome."
 
     Examples:
-      | moment    |
-      | post      |
-      | song      |
+      | moment |
+      | post |
+      | song |
 
   Scenario Outline: try to create an empty comment for the moment type 
     Given I am a signed in user
@@ -22,9 +22,9 @@ Feature: Moment Comments
     Then the "<moment>" alerts "Comment body can't be blank." 
 
     Examples:
-      | moment    |
-      | post      |
-      | song      |
+      | moment |
+      | post |
+      | song |
 
   Scenario Outline: guest can not create a comment for the moment type  
     Given I am a guest
@@ -32,6 +32,6 @@ Feature: Moment Comments
     Then I can not create a new comment
 
     Examples:
-      | moment    |
-      | post      |
-      | song      |
+      | moment |
+      | post |
+      | song |

@@ -17,6 +17,6 @@ Feature: SDN Home Page
     Then SDN displays the "<moment>" with the "<attribute>" "<value>"
 
     Examples:
-      | moment    | attribute   | value               |
-      | post      | headline    | My Dog Is Awesome   |
-      | song      | title       | Southbound          |
+      | moment | attribute | value |
+      | post | headline | My Dog Is Awesome |
+      | song | title | Southbound |
