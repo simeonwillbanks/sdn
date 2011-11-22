@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :post do
-    sequence(:headline) { |n| "My Headline #{n}" }  
-    sequence(:body)     { |n| "Body #{n}" * 10 }  
+    headline { Forgery(:lorem_ipsum).sentence(:random => true) }
+    body     { Forgery(:lorem_ipsum).paragraphs(2, :random => true) }
   end
 end
 # == Schema Information

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    body "MyText"
+    body { Forgery(:lorem_ipsum).sentence(:random => true) }
     association :user
   end
 end

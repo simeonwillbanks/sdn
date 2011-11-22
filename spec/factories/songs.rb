@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :song do
-    title "MyString"
-    artist "MyString"
-    listen "MyString"
+    title  { Forgery(:name).location }
+    artist { Forgery(:name).last_name }
+    listen { "http://#{Forgery(:internet).domain_name}" }
   end
 end
