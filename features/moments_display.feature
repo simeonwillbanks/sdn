@@ -14,7 +14,6 @@ Feature: Show Moments
       | post | headline | My Dog Is Awesome |
       | song | title | Southbound |
 
-  @wip
   Scenario Outline: visit the moments section
     Given I am a guest
     When I visit the index of "<moment>s"
