@@ -70,20 +70,15 @@ end
   end
 
   def features 
-    insert_into_file "features/home_page.feature", :after => example_header(['moment','attribute','value']) do
-      example_row [singular_name, moment_attribute, sentence]
+    %w(home_page, moments_display, moment_creation).each do |f|
+      insert_into_file "features/#{f}.feature", :after => example_header(['moment','attribute','value']) do
+        example_row [singular_name, moment_attribute, sentence]
+      end
     end
-    insert_into_file "features/moment_comments.feature", :after => example_header(['moment']) do 
-      example_row [singular_name]
-    end
-    insert_into_file "features/moments_display.feature", :after => example_header(['moment','attribute','value']) do
-      example_row [singular_name, moment_attribute, sentence]
-    end
-    insert_into_file "features/moment_creation.feature", :after => example_header(['moment','attribute','value']) do
-      example_row [singular_name, moment_attribute, sentence]
-    end
-    insert_into_file "features/moment_creation.feature", :after => example_header(['moment']) do
-      example_row [singular_name]
+    %w(moment_comments, moments_display, moment_creation).each do |f|
+      insert_into_file "features/#{f}.feature", :after => example_header(['moment']) do 
+        example_row [singular_name]
+      end
     end
     insert_into_file "features/moment_tags.feature", :after => example_header(['moment','attribute','value', 'tags']) do
       example_row [singular_name, moment_attribute, sentence, "#{word}, #{word}"]
