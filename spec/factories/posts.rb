@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :post do
     headline { Forgery(:lorem_ipsum).sentence(:random => true) }
-    body     { Forgery(:lorem_ipsum).paragraphs(2, :random => true) }
+    body     { Forgery(:lorem_ipsum).paragraphs(1, :random => true) }
   end
 end
 # == Schema Information
