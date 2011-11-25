@@ -1,22 +1,21 @@
 class HomePresenter
   include Enumerable
 
-  def initialize(collection)
-    @collection = collection
+  def initialize(page)
+    @page = page
   end
 
   def each &block
-    @collection.each { |moment| block.call(decorate(moment.subject_type, moment.subject)) } 
+    collection.each { |moment| block.call moment.subject.decorate } 
   end
 
   def method_missing(*args, &block)
-    @collection.send(*args, &block)
+    collection.send(*args, &block)
   end
 
   private
 
-  def decorate(type, moment)
-    "#{type}Decorator".constantize.decorate moment
+  def collection
+    @collection ||= Moment.page @page
   end
-
 end

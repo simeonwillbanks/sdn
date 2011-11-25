@@ -10,24 +10,36 @@ When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
 end
 
 When /^I visit a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
-  @moment = Factory(moment.to_sym, attribute.to_sym => value)
+  new_moment = Factory(moment.to_sym, attribute.to_sym => value)
+  @moment = moment == 'post' ? new_moment : new_moment.decorate
   visit send("#{moment}_url".to_sym, @moment) 
 end
 
 When /^I visit the index of "([^"]*)"$/ do |moments|
-  @moments = (1..14).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym) }
+  @moments = (1..(WillPaginate.per_page + 1)).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym).decorate }
   visit send("#{moments}_url".to_sym)
 end
 
 When /^I know SDN has a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
-  @moment = Factory(moment.to_sym, attribute.to_sym => value)
+  @moment = Factory(moment.to_sym, attribute.to_sym => value).decorate
 end
 
-Then /^SDN displays the "([^"]*)"$/ do |arg1|
+Then /^SDN displays the "([^"]*)"$/ do |moments|
+  case moments
+    when 'posts'
+      attrs = [:headline, :body]
+    when 'dailies'
+      attrs = [:created_at]
+    when 'songs'
+      attrs = [:title, :artist, :listen]
+  end
   # Only look for moments on first page in reverse order because of default scope
   @moments.reverse[0..(WillPaginate.per_page - 1)].each do |moment|
-    moment.serializable_hash(:except => [:id,:created_at,:updated_at]).each do |key, attribute| 
-      page.should have_content(attribute) 
+    if moments == 'dailies'
+      page.should have_selector("img[src='#{moment.src}']")
+    end
+    attrs.each do |attr|
+      page.should have_content(moment.send(attr)) 
     end
   end
 end

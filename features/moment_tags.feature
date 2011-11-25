@@ -16,6 +16,7 @@ Feature: Moment Tags
 
     Examples:
       | moment | attribute | value | tags |
+			| daily | origin_poid | 42 | Momentile |
       | post | headline | My Dog Is Awesome | dog, companion |
       | song | title | Southbound | rock, allmans |
 

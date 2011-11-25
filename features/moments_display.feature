@@ -11,16 +11,18 @@ Feature: Show Moments
 
     Examples:
       | moment | attribute | value |
+			| daily | created_at | November 25, 2011 |
       | post | headline | My Dog Is Awesome |
       | song | title | Southbound |
 
   Scenario Outline: visit the moments section
     Given I am a guest
-    When I visit the index of "<moment>s"
-    Then SDN displays the "<moment>s"
+    When I visit the index of "<moment>"
+    Then SDN displays the "<moment>"
     And SDN displays pagination
 
     Examples:
       | moment |
-      | post |
-      | song |
+      | dailies |
+      | posts |
+      | songs |

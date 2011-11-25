@@ -12,6 +12,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| daily |
       | post |
       | song |
 
@@ -23,6 +24,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| daily |
       | post |
       | song |
 
@@ -33,5 +35,6 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| daily |
       | post |
       | song |

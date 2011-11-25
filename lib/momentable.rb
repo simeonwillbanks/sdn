@@ -7,6 +7,7 @@ module Momentable
     has_many :comments, :as => :commentable
     validates_associated :moments
     after_create { moments << Moment.new }
+    include Draper::ModelSupport
   end
 
   module InstanceMethods

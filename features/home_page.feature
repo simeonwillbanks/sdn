@@ -18,5 +18,6 @@ Feature: SDN Home Page
 
     Examples:
       | moment | attribute | value |
+			| daily | created_at | November 25, 2011 |
       | post | headline | My Dog Is Awesome |
       | song | title | Southbound |

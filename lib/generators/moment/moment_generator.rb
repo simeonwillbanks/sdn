@@ -65,12 +65,16 @@ end
 
   def comments_controller
     insert_into_file "app/controllers/comments_controller.rb", :after => "belongs_to :post, :polymorphic => true\n" do
-      "\tbelongs_to :#{singular_name}, :ploymorphic => true\n"
+      "\tbelongs_to :#{singular_name}, :polymorphic => true\n"
     end
   end
 
   def features 
-    %w(home_page moments_display moment_creation).each do |f|
+    insert_into_file "features/moments_display.feature", :after => example_header(['moment','attribute','value']) do
+      # Name must be plural incase pluralization is abnormal
+      example_row [plural_name, moment_attribute, sentence]
+    end
+    %w(home_page moment_creation).each do |f|
       insert_into_file "features/#{f}.feature", :after => example_header(['moment','attribute','value']) do
         example_row [singular_name, moment_attribute, sentence]
       end
