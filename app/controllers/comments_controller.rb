@@ -2,6 +2,7 @@ class CommentsController < InheritedResources::Base
 
   before_filter :authenticate_user!
   belongs_to :post, :polymorphic => true
+	belongs_to :photo, :polymorphic => true
 	belongs_to :daily, :polymorphic => true
   belongs_to :song, :polymorphic => true
   respond_to :html

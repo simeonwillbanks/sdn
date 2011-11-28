@@ -1,7 +1,8 @@
 Sdn::Application.routes.draw do
 
   
-  resources :songs, :posts, :dailies, :only => [:index, :show, :create] do
+  
+  resources :songs, :posts, :dailies, :photos, :only => [:index, :show, :create] do
     resources :comments, :only => [:create]
   end
 

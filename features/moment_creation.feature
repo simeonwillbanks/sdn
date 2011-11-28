@@ -14,6 +14,7 @@ Feature: Moment Creation
 
     Examples:
       | moment | attribute | value |
+			| photo | title | Praesent blandit. |
 			| daily | origin_poid | 42 |
       | post | headline | My Dog Is Awesome |
       | song | title | Southbound |
@@ -25,6 +26,7 @@ Feature: Moment Creation
 
     Examples:
       | moment |
+			| photo |
 			| daily |
       | post |
       | song |

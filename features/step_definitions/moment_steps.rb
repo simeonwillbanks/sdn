@@ -25,19 +25,22 @@ When /^I know SDN has a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, att
 end
 
 Then /^SDN displays the "([^"]*)"$/ do |moments|
+  src = false
   case moments
+    when 'photos'
+      attrs = [:title, :description]
+      src = true
     when 'posts'
       attrs = [:headline, :body]
     when 'dailies'
       attrs = [:created_at]
+      src = true
     when 'songs'
       attrs = [:title, :artist, :listen]
   end
   # Only look for moments on first page in reverse order because of default scope
   @moments.reverse[0..(WillPaginate.per_page - 1)].each do |moment|
-    if moments == 'dailies'
-      page.should have_selector("img[src='#{moment.src}']")
-    end
+    page.should have_selector("img[src='#{moment.src}']") if src
     attrs.each do |attr|
       page.should have_content(moment.send(attr)) 
     end

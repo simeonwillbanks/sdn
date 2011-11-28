@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125205810) do
+ActiveRecord::Schema.define(:version => 20111128155532) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20111125205810) do
 
   add_index "moments", ["subject_id"], :name => "index_moments_on_subject_id"
   add_index "moments", ["subject_type"], :name => "index_moments_on_subject_type"
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "origin_poid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "headline"
