@@ -5,3 +5,13 @@ FactoryGirl.define do
     sequence(:origin_poid) {|n| n }
   end
 end
+# == Schema Information
+#
+# Table name: dailies
+#
+#  id          :integer         not null, primary key
+#  origin_poid :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
