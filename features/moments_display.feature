@@ -11,7 +11,7 @@ Feature: Show Moments
 
     Examples:
       | moment | attribute | value |
-			| photos | title | Suspendisse potenti. |
+			| photo | title | Suspendisse potenti. |
 			| daily | created_at | November 25, 2011 |
       | post | headline | My Dog Is Awesome |
       | song | title | Southbound |
@@ -24,7 +24,7 @@ Feature: Show Moments
 
     Examples:
       | moment |
-			| photo |
+			| photos |
       | dailies |
       | posts |
       | songs |

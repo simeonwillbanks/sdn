@@ -70,11 +70,11 @@ end
   end
 
   def features 
-    insert_into_file "features/moments_display.feature", :after => example_header(['moment','attribute','value']) do
+    insert_into_file "features/moments_display.feature", :after => example_header(['moment']) do
       # Name must be plural incase pluralization is abnormal
-      example_row [plural_name, moment_attribute, sentence]
+      example_row [plural_name]
     end
-    %w(home_page moment_creation).each do |f|
+    %w(home_page moment_display moment_creation).each do |f|
       insert_into_file "features/#{f}.feature", :after => example_header(['moment','attribute','value']) do
         example_row [singular_name, moment_attribute, sentence]
       end
