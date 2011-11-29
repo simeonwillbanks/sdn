@@ -38,6 +38,7 @@ class MomentGenerator < Rails::Generators::NamedBase
     gsub_file "app/models/#{singular_name}.rb", /ActiveRecord::Base/, "DefaultScope\n\tinclude Momentable"
     gsub_file "spec/models/#{singular_name}_spec.rb", /do.*/m, <<-SPEC
 do
+  before { Factory(:#{singular_name}) }
   context 'validations' do
 
   end
@@ -74,12 +75,12 @@ end
       # Name must be plural incase pluralization is abnormal
       example_row [plural_name]
     end
-    %w(home_page moment_display moment_creation).each do |f|
+    %w(home_page moments_display moment_creation).each do |f|
       insert_into_file "features/#{f}.feature", :after => example_header(['moment','attribute','value']) do
         example_row [singular_name, moment_attribute, sentence]
       end
     end
-    %w(moment_comments moments_display moment_creation).each do |f|
+    %w(moment_comments moment_creation).each do |f|
       insert_into_file "features/#{f}.feature", :after => example_header(['moment']) do 
         example_row [singular_name]
       end

@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe Photo do
   context 'validations' do
-
+    before { Factory(:photo) }
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:origin_poid) }
+    it { should validate_uniqueness_of(:origin_poid) }
   end
 
   let(:type) { 'Photo' }

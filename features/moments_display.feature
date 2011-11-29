@@ -11,6 +11,7 @@ Feature: Show Moments
 
     Examples:
       | moment | attribute | value |
+			| video | title | Vivamus tortor. |
 			| photo | title | Suspendisse potenti. |
 			| daily | created_at | November 25, 2011 |
       | post | headline | My Dog Is Awesome |
@@ -24,6 +25,7 @@ Feature: Show Moments
 
     Examples:
       | moment |
+			| videos |
 			| photos |
       | dailies |
       | posts |

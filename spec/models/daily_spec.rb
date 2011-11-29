@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Daily do
   context 'validations' do
-
+    before { Factory(:daily) }
+    it { should validate_presence_of(:origin_poid) }
+    it { should validate_uniqueness_of(:origin_poid) }
   end
 
   let(:type) { 'Daily' }

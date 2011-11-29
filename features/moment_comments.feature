@@ -12,6 +12,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| video |
 			| photo |
 			| daily |
       | post |
@@ -25,6 +26,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| video |
 			| photo |
 			| daily |
       | post |
@@ -37,6 +39,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| video |
 			| photo |
 			| daily |
       | post |

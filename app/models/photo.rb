@@ -1,5 +1,7 @@
 class Photo < DefaultScope
 	include Momentable
+  validates_presence_of :title, :origin_poid
+  validates_uniqueness_of :origin_poid
 end
 # == Schema Information
 #

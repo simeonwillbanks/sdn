@@ -16,6 +16,7 @@ Feature: Moment Tags
 
     Examples:
       | moment | attribute | value | tags |
+			| video | title | Aenean auctor gravida sem. | id, a |
 			| photo | title | In blandit ultrices enim. | condimentum, eros |
 			| daily | origin_poid | 42 | Momentile |
       | post | headline | My Dog Is Awesome | dog, companion |
