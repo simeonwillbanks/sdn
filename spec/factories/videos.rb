@@ -12,3 +12,16 @@ FactoryGirl.define do
     origin 'youtube'
   end
 end
+# == Schema Information
+#
+# Table name: videos
+#
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  description :text
+#  origin_poid :string(255)
+#  origin      :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

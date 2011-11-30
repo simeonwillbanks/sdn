@@ -10,7 +10,7 @@ end
 #  id          :integer         not null, primary key
 #  title       :string(255)
 #  description :text
-#  origin_poid :integer
+#  origin_poid :integer(8)
 #  created_at  :datetime
 #  updated_at  :datetime
 #

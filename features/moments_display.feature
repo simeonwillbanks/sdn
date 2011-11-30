@@ -11,6 +11,7 @@ Feature: Show Moments
 
     Examples:
       | moment | attribute | value |
+			| beer | name | Proin eu mi. |
 			| video | title | Vivamus tortor. |
 			| photo | title | Suspendisse potenti. |
 			| daily | created_at | November 25, 2011 |
@@ -25,6 +26,7 @@ Feature: Show Moments
 
     Examples:
       | moment |
+			| beers |
 			| photos |
       | dailies |
       | posts |

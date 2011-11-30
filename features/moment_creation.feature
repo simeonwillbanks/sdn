@@ -14,6 +14,7 @@ Feature: Moment Creation
 
     Examples:
       | moment | attribute | value |
+			| beer | name | Integer a nibh. |
 			| video | title | Nullam varius. |
 			| photo | title | Praesent blandit. |
 			| daily | origin_poid | 42 |
@@ -27,6 +28,7 @@ Feature: Moment Creation
 
     Examples:
       | moment |
+			| beer |
 			| video |
 			| photo |
 			| daily |

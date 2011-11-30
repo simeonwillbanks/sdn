@@ -23,6 +23,7 @@ gem 'draper'
 gem 'decent_exposure'
 gem 'will_paginate'
 gem 'ruby-oembed'
+gem 'untappd'
 
 # Use unicorn as the web server
 # gem 'unicorn'

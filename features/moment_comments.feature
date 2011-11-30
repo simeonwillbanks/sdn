@@ -12,6 +12,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| beer |
 			| video |
 			| photo |
 			| daily |
@@ -26,6 +27,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| beer |
 			| video |
 			| photo |
 			| daily |
@@ -39,6 +41,7 @@ Feature: Moment Comments
 
     Examples:
       | moment |
+			| beer |
 			| video |
 			| photo |
 			| daily |

@@ -27,6 +27,8 @@ end
 Then /^SDN displays the "([^"]*)"$/ do |moments|
   src = false
   case moments
+    when 'beers'
+      attrs = [:name, :brewery, :description]
     when 'videos'
       attrs = [:title, :description]
     when 'photos'
