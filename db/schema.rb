@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111129163725) do
+ActiveRecord::Schema.define(:version => 20111130040251) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20111129163725) do
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "origin_poid"
+    t.integer  "origin_poid", :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(:version => 20111129163725) do
   create_table "videos", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "origin_poid"
+    t.string   "origin_poid"
     t.string   "origin"
     t.datetime "created_at"
     t.datetime "updated_at"

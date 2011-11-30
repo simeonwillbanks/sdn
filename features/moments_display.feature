@@ -25,7 +25,6 @@ Feature: Show Moments
 
     Examples:
       | moment |
-			| videos |
 			| photos |
       | dailies |
       | posts |

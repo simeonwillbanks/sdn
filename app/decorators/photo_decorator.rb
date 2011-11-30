@@ -2,8 +2,7 @@ class PhotoDecorator < ApplicationDecorator
   decorates :photo
 
   def src
-    # TODO set the proper flickr URL
-    "http://flickr.com/photos/#{photo.origin_poid}/large.jpg"
+    OEmbed::Providers::Flickr.get("http://www.flickr.com/photos/simeonsdotnet/#{photo.origin_poid}").url
   end
 
   def for_json

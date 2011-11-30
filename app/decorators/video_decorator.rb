@@ -1,6 +1,20 @@
 class VideoDecorator < ApplicationDecorator
   decorates :video
 
+  def url
+    path = video.youtube? ? 'http://www.youtube.com/watch?v=' : 'http://www.flickr.com/photos/simeonsdotnet/' 
+    path + video.origin_poid
+  end
+
+  def player
+    provider = video.youtube? ? OEmbed::Providers::Youtube : OEmbed::Providers::Flickr
+    provider.get(url).html.html_safe
+  end
+
+  def for_json
+    {'url' => url}
+  end
+
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

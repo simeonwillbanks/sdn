@@ -22,6 +22,7 @@ gem 'acts-as-taggable-on'
 gem 'draper'
 gem 'decent_exposure'
 gem 'will_paginate'
+gem 'ruby-oembed'
 
 # Use unicorn as the web server
 # gem 'unicorn'
