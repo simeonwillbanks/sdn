@@ -9,9 +9,8 @@ class DailyDecorator < ApplicationDecorator
     "http://momentile.com/tiles/#{daily.origin_poid}/large.jpg"
   end
 
-  def as_json(options=nil)
-    options ||= {}
-    model.as_json(options).merge("src" => src)
+  def for_json
+    {'src' => src}
   end
 
   # Accessing Helpers

@@ -1,4 +1,14 @@
 class ApplicationDecorator < Draper::Base
+
+  def for_json
+    {}
+  end
+
+  def as_json(options=nil)
+    options ||= {}
+    model.as_json(options).merge(for_json)
+  end
+
   # Lazy Helpers
   #   PRO: Call Rails helpers without the h. proxy
   #        ex: number_to_currency(model.price)
