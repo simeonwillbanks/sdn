@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130171313) do
+ActiveRecord::Schema.define(:version => 20111201162142) do
 
   create_table "beers", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20111130171313) do
     t.integer  "origin_poid", :limit => 8
   end
 
+  add_index "beers", ["origin_poid"], :name => "index_beers_on_origin_poid", :unique => true
+
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -32,11 +34,16 @@ ActiveRecord::Schema.define(:version => 20111130171313) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "dailies", :force => true do |t|
     t.integer  "origin_poid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "dailies", ["origin_poid"], :name => "index_dailies_on_origin_poid", :unique => true
 
   create_table "moments", :force => true do |t|
     t.datetime "created_at"
@@ -55,6 +62,8 @@ ActiveRecord::Schema.define(:version => 20111130171313) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "photos", ["origin_poid"], :name => "index_photos_on_origin_poid", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "headline"
@@ -123,5 +132,7 @@ ActiveRecord::Schema.define(:version => 20111130171313) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "videos", ["origin_poid", "origin"], :name => "index_videos_on_origin_poid_and_origin", :unique => true
 
 end
