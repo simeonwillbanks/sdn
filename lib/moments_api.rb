@@ -10,11 +10,6 @@ module MomentsApi
   end
 
   module InstanceMethods
-    protected
-
-    def authenticate_admin!
-      render :file => "public/401.html", :status => :unauthorized unless user_signed_in? && current_user.admin?
-    end
 
     def resource
       unless instance_variable_defined? "@#{resource_instance_name}"

@@ -16,7 +16,7 @@ When /^I visit a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute,
 end
 
 When /^I visit the index of "([^"]*)"$/ do |moments|
-  @moments = (1..(WillPaginate.per_page + 1)).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym).decorate }
+  @moments = (0..10).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym).decorate }
   visit send("#{moments}_url".to_sym)
 end
 
@@ -43,7 +43,7 @@ Then /^SDN displays the "([^"]*)"$/ do |moments|
       attrs = [:title, :artist, :listen]
   end
   # Only look for moments on first page in reverse order because of default scope
-  @moments.reverse[0..(WillPaginate.per_page - 1)].each do |moment|
+  @moments.reverse[0..9].each do |moment|
     page.should have_selector("img[src='#{moment.src}']") if src
     attrs.each do |attr|
       page.should have_content(moment.send(attr)) 
@@ -79,9 +79,9 @@ When /^I visit a "([^"]*)"$/ do |moment|
 end
 
 Then /^SDN displays pagination$/ do
-  # <em class="current">1</em>
-  find('em.current').should have_content('1')
-  # <a href="./?page=2" rel="next">2</a>
+  # <span class="page current">1</span>  
+  find('span.current').should have_content('1')
+  # <a href="/?page=2" rel="next">2</a>
   find('a[rel="next"]').should have_content('2')
 end
 

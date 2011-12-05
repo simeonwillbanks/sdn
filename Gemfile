@@ -21,9 +21,14 @@ gem 'inherited_resources'
 gem 'acts-as-taggable-on'
 gem 'draper'
 gem 'decent_exposure'
-gem 'will_paginate'
+gem 'kaminari'
 gem 'ruby-oembed'
 gem 'untappd'
+
+# Gemfile in Rails >= 3.1 for active admin
+gem 'activeadmin'
+gem 'sass-rails'
+gem "meta_search",    '>= 1.1.0.pre'
 
 # Use unicorn as the web server
 # gem 'unicorn'

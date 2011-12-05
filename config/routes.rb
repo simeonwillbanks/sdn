@@ -1,14 +1,13 @@
 Sdn::Application.routes.draw do
 
-  
-  
-  
-  
   resources :songs, :posts, :dailies, :photos, :videos, :beers, :only => [:index, :show, :create] do
     resources :comments, :only => [:create]
   end
 
   devise_for :users
+
+  ActiveAdmin.routes(self)
+  # devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => "home#index"
 
