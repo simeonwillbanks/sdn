@@ -24,6 +24,7 @@ gem 'decent_exposure'
 gem 'kaminari'
 gem 'ruby-oembed'
 gem 'untappd'
+gem 'mechanize'
 
 # Gemfile in Rails >= 3.1 for active admin
 gem 'activeadmin'
