@@ -36,13 +36,6 @@ gem "meta_search",    '>= 1.1.0.pre'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-  gem 'minitest'
-  gem 'shoulda-matchers'
-end
-
 group :development do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'haml-rails'
@@ -58,7 +51,9 @@ group :development, :test do
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'capybara'
-  gem 'spork', '~> 0.9.0.rc9'
+  # Using this spork so helpers available in scenarios
+  # https://github.com/k41n/spork/commit/838a4c9b52ddf127add80f019e097c36d1ffc15c
+  gem 'spork', :git => 'git://github.com/k41n/spork.git'
   gem 'foreman'
   gem 'silent-postgres'
   gem 'rb-fsevent'
@@ -67,4 +62,8 @@ group :development, :test do
   gem 'guard-cucumber'
   gem 'guard-spork'
   gem 'forgery'
+  # Pretty printed test output
+  gem 'turn', :require => false
+  gem 'minitest'
+  gem 'shoulda-matchers'
 end  

@@ -4,6 +4,12 @@ GIT
   specs:
     annotate (2.4.1.beta1)
 
+GIT
+  remote: git://github.com/k41n/spork.git
+  revision: 838a4c9b52ddf127add80f019e097c36d1ffc15c
+  specs:
+    spork (0.9.0.rc9)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -241,7 +247,6 @@ GEM
     shoulda-matchers (1.0.0)
     silent-postgres (0.1.1)
     slop (2.1.0)
-    spork (0.9.0.rc9)
     sprockets (2.1.1)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -306,7 +311,7 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   silent-postgres
-  spork (~> 0.9.0.rc9)
+  spork!
   turn
   uglifier
   untappd

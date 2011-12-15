@@ -11,6 +11,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'capybara/rspec'
+  require 'pry'
 
   # Delay route loading to speed up Devise
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
@@ -29,7 +30,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  # TODO load factories on each run
   require 'factory_girl_rails' 
+  FactoryGirl.reload
 end
 
