@@ -25,6 +25,9 @@ gem 'kaminari'
 gem 'ruby-oembed'
 gem 'untappd'
 gem 'mechanize'
+gem 'posterous'
+gem 'flickraw'
+gem 'youtube_it'
 
 # Gemfile in Rails >= 3.1 for active admin
 gem 'activeadmin'

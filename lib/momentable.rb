@@ -6,7 +6,7 @@ module Momentable
     has_many :moments, :as => :subject
     has_many :comments, :as => :commentable
     validates_associated :moments
-    after_create { moments << Moment.new }
+    after_create { moments << Moment.new(:created_at => self.created_at) }
     include Draper::ModelSupport
   end
 
