@@ -1,11 +1,29 @@
 !!!
-%html
+%html{:lang => 'en'}
   %head
-    %title simeons.net
-    = stylesheet_link_tag :application
-    = javascript_include_tag :application
+    %meta{:charset => 'utf-8'}
+    %meta{:content => 'simeons.net keeping the web weird since 2002', :name => 'description'}
+    %meta{:content => 'Simeon Foster Willbanks', :name => 'author'}
     = csrf_meta_tags
+    %title simeons.net
+    /[if lt IE 9]
+      <script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script>
+    = stylesheet_link_tag :application
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    %link{:href => 'images/favicon.ico', :rel => 'shortcut icon'}
   %body
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
-    = yield
+    = render 'nav'
+    .container
+      .row
+        .span12
+          = flash_messages
+      .row
+        .span12
+          = yield
+      %hr/
+      %footer
+      %p &copy; simeons.net 2002 &mdash; #{Time.now.year}
+    = javascript_include_tag :application

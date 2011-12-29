@@ -1,0 +1,12 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %a.btn.btn-navbar{'data-target' => '.nav-collapse', 'data-toggle' => 'collapse'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to 'simeons.net', root_path, :class => 'brand'
+      .nav-collapse
+        %ul.nav
+          - ['home', 'posts', 'dailies', 'photos', 'videos', 'beers', 'songs'].each do |item|
+            =nav_item item

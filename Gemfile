@@ -11,6 +11,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
+  gem 'less-rails-bootstrap'
 end
 
 gem 'jquery-rails'
@@ -28,6 +29,7 @@ gem 'mechanize'
 gem 'posterous'
 gem 'flickraw'
 gem 'youtube_it'
+gem 'simple_form'
 
 # Gemfile in Rails >= 3.1 for active admin
 gem 'activeadmin'
@@ -46,6 +48,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'thin'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'pry'
   gem 'database_cleaner'

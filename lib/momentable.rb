@@ -11,11 +11,9 @@ module Momentable
     include Draper::ModelSupport
   end
 
-  module InstanceMethods
-    def as_json(options=nil)
-      options ||= {}
-      super(options.merge({:include => :tags}))
-    end
+  def as_json(options=nil)
+    options ||= {}
+    super(options.merge({:include => :tags}))
   end
 
 end

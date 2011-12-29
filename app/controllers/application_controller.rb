@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def authenticate_admin!
-    render :file => "public/401.html", :status => :unauthorized unless user_signed_in? && current_user.admin?
+    render :file => 'public/401', :formats => [:html], :status => :unauthorized unless user_signed_in? && current_user.admin?
   end
 end

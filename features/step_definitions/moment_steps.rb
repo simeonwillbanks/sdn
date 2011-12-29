@@ -80,9 +80,7 @@ When /^I visit a "([^"]*)"$/ do |moment|
 end
 
 Then /^SDN displays pagination$/ do
-  # <span class="page current">1</span>  
-  find('span.current').should have_content('1')
-  # <a href="/?page=2" rel="next">2</a>
+  find('nav.pagination ul li.active.page a').should have_content('1')
   find('a[rel="next"]').should have_content('2')
 end
 
