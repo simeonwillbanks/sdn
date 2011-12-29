@@ -1,3 +1,4 @@
+# encoding: utf-8
 class MoveAdminNotesToComments < ActiveRecord::Migration
   def self.up
     remove_index  :admin_notes, [:user_type, :user_id]

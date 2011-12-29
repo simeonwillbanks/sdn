@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AlterPostsAddOrigin < ActiveRecord::Migration
   def up
     add_column(:posts, :origin_poid, :bigint)

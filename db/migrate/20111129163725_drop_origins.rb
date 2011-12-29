@@ -1,3 +1,4 @@
+# encoding: utf-8
 class DropOrigins < ActiveRecord::Migration
   def up
     drop_table :origins

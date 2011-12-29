@@ -1,3 +1,4 @@
+# encoding: utf-8
 Given /^I have a new "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
   # Build moment as a factory than coerce into a hash without primary key or timestamp members
   hash = Factory.build(moment.to_sym, attribute.to_sym => value).serializable_hash(:except => [:id,:created_at,:updated_at])

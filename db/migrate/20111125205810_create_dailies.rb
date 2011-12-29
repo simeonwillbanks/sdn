@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CreateDailies < ActiveRecord::Migration
   def change
     create_table :dailies do |t|

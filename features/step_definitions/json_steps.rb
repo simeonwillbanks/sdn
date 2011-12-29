@@ -1,3 +1,4 @@
+# encoding: utf-8
 Given /^I send and accept JSON$/ do
   header 'Accept', 'application/json'
   header 'Content-Type', 'application/json'

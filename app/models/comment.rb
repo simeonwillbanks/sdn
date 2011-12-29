@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Comment < DefaultScope
   belongs_to :user
   belongs_to :commentable, :polymorphic => true

@@ -1,3 +1,4 @@
+# encoding: utf-8
 Given /^I am an admin$/ do
   @admin = Factory(:admin)
 end

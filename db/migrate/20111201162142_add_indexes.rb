@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AddIndexes < ActiveRecord::Migration
   def up
     add_index :beers, :origin_poid, :unique => true

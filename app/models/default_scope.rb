@@ -1,3 +1,4 @@
+# encoding: utf-8
 class DefaultScope < ActiveRecord::Base
   self.abstract_class = true
   default_scope :order => 'created_at DESC'

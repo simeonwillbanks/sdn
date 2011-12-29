@@ -1,3 +1,4 @@
+# encoding: utf-8
 When /^I visit the home page$/ do
   visit root_url
 end

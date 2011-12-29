@@ -1,3 +1,4 @@
+# encoding: utf-8
 shared_examples_for "a type of moment" do
   it { should have_many(:moments) }
   it { should have_many(:comments) }

@@ -1,3 +1,4 @@
+# encoding: utf-8
 When /^I create a commment which says "([^"]*)"$/ do |body|
   # save_and_open_page
   fill_in('comment[body]', :with => body)

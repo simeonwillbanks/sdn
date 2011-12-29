@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Song < DefaultScope
   include Momentable
 

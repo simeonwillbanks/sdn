@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CreateOrigins < ActiveRecord::Migration
   def change
     create_table :origins do |t|

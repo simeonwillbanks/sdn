@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Daily < DefaultScope
 	include Momentable
   validates_presence_of :origin_poid

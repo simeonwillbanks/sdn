@@ -1,3 +1,4 @@
+# encoding: utf-8
 shared_context "moment" do
   let(:new_moment) { Factory(moment) }
   before { new_moment }

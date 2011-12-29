@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AlterMomentsAddSubject < ActiveRecord::Migration
   def up
     add_column :moments, :subject_id, :integer

@@ -1,3 +1,4 @@
+# encoding: utf-8
 Sdn::Application.routes.draw do
 
   resources :songs, :posts, :dailies, :photos, :videos, :beers, :only => [:index, :show, :create] do

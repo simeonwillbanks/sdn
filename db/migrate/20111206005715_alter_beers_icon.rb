@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AlterBeersIcon < ActiveRecord::Migration
   def up
     change_column(:beers, :icon, :string)

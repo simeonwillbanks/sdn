@@ -1,3 +1,4 @@
+# encoding: utf-8
 class ApplicationDecorator < Draper::Base
 
   def for_json

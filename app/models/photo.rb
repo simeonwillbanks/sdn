@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Photo < DefaultScope
 	include Momentable
   validates_presence_of :title, :origin_poid

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CreateBeers < ActiveRecord::Migration
   def up
     create_table :beers do |t|
