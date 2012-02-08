@@ -16,6 +16,9 @@ class VideoDecorator < ApplicationDecorator
     {'url' => url}
   end
 
+  def heading
+    super video.title
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

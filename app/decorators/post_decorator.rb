@@ -3,7 +3,11 @@ class PostDecorator < ApplicationDecorator
   decorates :post
 
   def body
-    post.body[0..10].chop
+    h.current_page?(post) ? post.body.html_safe : h.truncate(h.strip_tags(post.body), :length => 300)
+  end
+
+  def heading
+    super post.headline
   end
 
   # Accessing Helpers

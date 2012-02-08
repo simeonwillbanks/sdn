@@ -2,6 +2,9 @@
 class BeerDecorator < ApplicationDecorator
   decorates :beer
 
+  def heading
+    super beer.name
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

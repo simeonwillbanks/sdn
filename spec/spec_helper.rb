@@ -13,6 +13,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'capybara/rspec'
   require 'pry'
+  require 'draper/rspec_integration'
 
   # Delay route loading to speed up Devise
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)

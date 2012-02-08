@@ -10,6 +10,12 @@ class ApplicationDecorator < Draper::Base
     model.as_json(options).merge(for_json)
   end
 
+  def heading(heading)
+    # If we add more moments which have title as an attribute,
+    # lets use this logic
+    # heading = model.respond_to?(:title) ? model.title : heading
+    h.current_page?(model) ? heading : h.link_to(heading, model)
+  end
   # Lazy Helpers
   #   PRO: Call Rails helpers without the h. proxy
   #        ex: number_to_currency(model.price)

@@ -14,6 +14,9 @@ class DailyDecorator < ApplicationDecorator
     {'src' => src}
   end
 
+  def heading
+    super created_at
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

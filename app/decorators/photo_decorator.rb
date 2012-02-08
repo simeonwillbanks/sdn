@@ -10,6 +10,9 @@ class PhotoDecorator < ApplicationDecorator
     {'src' => src}
   end
 
+  def heading
+    super photo.title
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

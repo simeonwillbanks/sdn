@@ -17,7 +17,7 @@ class MomentGenerator < Rails::Generators::NamedBase
     features
   end
 
-  private 
+  private
 
   def resource
     args = [capital_name]
@@ -28,6 +28,16 @@ class MomentGenerator < Rails::Generators::NamedBase
 
   def decorator
     generate "draper:decorator", capital_name
+    insert_into_file "app/decorators/#{singular_name}_decorator.rb", :after => "decorates :#{singular_name}\n" do
+<<-METHOD
+
+  def heading
+    raise NotImplementedError.new
+    # Pass this moments title attribute to parent
+    # super moment.title
+  end
+METHOD
+    end
   end
 
   def route

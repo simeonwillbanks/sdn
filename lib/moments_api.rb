@@ -13,8 +13,8 @@ module MomentsApi
   def resource
     unless instance_variable_defined? "@#{resource_instance_name}"
       super
-      # Decorate resource when needed
-      set_resource_ivar(get_resource_ivar.decorate) if MomentsPresenter.decorate_resource?(resource_instance_name, params[:action])
+      # Always decorate resource
+      set_resource_ivar(get_resource_ivar.decorate)
     end
     get_resource_ivar
   end

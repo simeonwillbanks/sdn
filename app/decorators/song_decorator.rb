@@ -2,6 +2,9 @@
 class SongDecorator < ApplicationDecorator
   decorates :song
 
+  def heading
+    super song.title
+  end
   # Accessing Helpers
   #   You can access any helper via a proxy
   #

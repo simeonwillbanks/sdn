@@ -9,14 +9,17 @@ describe MomentsPresenter do
 
   describe ".decorate_resource?" do
     it "false when a post is shown" do
+      pending 'deprecated for now'
       subject.decorate_resource?(:post, 'show').should eq(false)
     end
 
     it "true when multiple posts are displayed" do
+      pending 'deprecated for now'
       subject.decorate_resource?(:post, 'index').should eq(true)
     end
 
     it "true when a daily is shown" do
+      pending 'deprecated for now'
       subject.decorate_resource?(:daily, 'show').should eq(true)
     end
   end
