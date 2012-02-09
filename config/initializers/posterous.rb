@@ -1,6 +1,6 @@
 # encoding: utf-8
 Posterous.config = {
-  'username'  => ENV['POSTEROUS_USERNAME'],
-  'password'  => ENV['POSTEROUS_PASSWORD'],
-  'api_token' => ENV['POSTEROUS_API_TOKEN']
+  'username'  => ENV['SDN_POSTEROUS_USERNAME'],
+  'password'  => ENV['SDN_POSTEROUS_PASSWORD'],
+  'api_token' => ENV['SDN_POSTEROUS_API_TOKEN']
 }

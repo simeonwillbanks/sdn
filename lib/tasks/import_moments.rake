@@ -46,7 +46,7 @@ namespace :import_moments do
 
     desc 'videos from youtube'
     task :youtube => :environment do
-      client = YouTubeIt::Client.new(:dev_key => ENV['YOUTUBE_DEVELOPER_KEY'])
+      client = YouTubeIt::Client.new(:dev_key => ENV['SDN_YOUTUBE_DEVELOPER_KEY'])
       client.videos_by(:query => "simeonsdotnet").videos.each do |video|
         Video.create(
           :title => video.title,
@@ -66,7 +66,7 @@ namespace :import_moments do
       page = 1
       query = true
       until query == false
-        photos = flickr.people.getPhotos(:user_id => ENV['FLICKR_USER_ID'], :per_page => 500, :page => page, :extras => 'description,date_upload,date_taken,tags,media')
+        photos = flickr.people.getPhotos(:user_id => ENV['SDN_FLICKR_USER_ID'], :per_page => 500, :page => page, :extras => 'description,date_upload,date_taken,tags,media')
         query = false if photos.size == 0
         photos.each do |f|
           if f.media == 'photo'

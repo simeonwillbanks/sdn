@@ -37,10 +37,10 @@ gem 'sass-rails'
 gem "meta_search",    '>= 1.1.0.pre'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 group :development do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'

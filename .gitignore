@@ -1,4 +1,3 @@
-config/env_vars.rb
 .bundle
 db/*.sqlite3
 log/*.log
@@ -6,3 +5,4 @@ tmp/
 .sass-cache/
 vendor/bundle/ruby
 help/
+chef/.bash_environment_variables
