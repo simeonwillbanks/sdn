@@ -6,3 +6,4 @@ tmp/
 vendor/bundle/ruby
 help/
 chef/.bash_environment_variables
+config/database.yml

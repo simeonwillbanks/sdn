@@ -11,8 +11,10 @@ SITE
     postgresql (0.99.2)
       openssl (>= 0.0.0)
     runit (0.14.2)
+    sysctl (0.1.0)
     ufw (0.6.1)
       firewall (>= 0.8)
+    xml (1.0.2)
 
 DEPENDENCIES
   apt (>= 0)
@@ -20,5 +22,7 @@ DEPENDENCIES
   firewall (>= 0)
   nginx (>= 0)
   postgresql (>= 0)
+  sysctl (>= 0)
   ufw (>= 0)
+  xml (>= 0)
 

@@ -9,6 +9,8 @@ cookbook 'postgresql'
 cookbook 'nginx'
 cookbook 'ufw'
 cookbook 'firewall'
+cookbook 'xml'
+cookbook 'sysctl'
 
 # cookbook 'chef-client'
 

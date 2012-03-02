@@ -13,3 +13,8 @@ apt_repository "security" do
   distribution "lucid-security"
   components ["main", "universe"]
 end
+
+# gem dependencies
+package "libxslt-dev"
+package "libcurl4-gnutls-dev"
+package "libcurl4-openssl-dev"
