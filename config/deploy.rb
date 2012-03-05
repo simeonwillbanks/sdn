@@ -20,7 +20,7 @@ set :deploy_to, "/home/simeon/app"
 set :user, "simeon"
 set :group, "staff"
 
-set :branch, "cap"
+set :branch, "master"
 # Only fetch the changes since the last
 set :deploy_via, :remote_cache
 
