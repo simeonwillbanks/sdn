@@ -14,6 +14,7 @@ group :assets do
   gem 'less-rails-bootstrap'
 end
 
+gem 'nokogiri'
 gem 'jquery-rails'
 gem 'haml'
 gem 'pg'
