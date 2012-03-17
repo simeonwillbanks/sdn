@@ -7,6 +7,8 @@ class HomePresenter
   end
 
   def each &block
+    # TODO
+    # Call decorate_associated and pass assocation
     collection.each { |moment| block.call moment.subject.decorate } 
   end
 
