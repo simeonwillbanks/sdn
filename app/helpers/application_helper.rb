@@ -12,7 +12,6 @@ module ApplicationHelper
       # Use Rails flash keys to set Bootstrap classes
       class_name = msg.first == :alert ? 'error' : 'success'
       html << content_tag(:div, msg.last, :class => "alert alert-#{class_name}")
-      html.html_safe
-    end
+    end.html_safe
   end
 end
