@@ -15,15 +15,8 @@ class CommentsController < InheritedResources::Base
     @comment.user = current_user
     create! do |success, failure|
       success.html { redirect_to parent_url }
-      failure.html { redirect_to parent_url }
+      failure.html { redirect_to parent_url, :alert => "Comment #{resource.errors.full_messages.first.downcase}." }
     end
-  end
-
-  protected
-
-  # %{resource_error_message} can now be interpolated by Responder and placed into flash messages
-  def interpolation_options
-    { :resource_error_message => (resource.errors.full_messages.first || "").downcase }
   end
 
 end
