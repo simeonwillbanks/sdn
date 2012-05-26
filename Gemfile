@@ -12,6 +12,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'less-rails-bootstrap'
+  gem 'therubyracer'
 end
 
 gem 'nokogiri'
