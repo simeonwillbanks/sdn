@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Post do
   context "validations" do
-    before { Factory(:post) }
+    before { FactoryGirl.create(:post) }
     it { should validate_presence_of(:headline) }
     it { should validate_presence_of(:body) }
     it { should validate_presence_of(:origin) }
@@ -16,15 +16,15 @@ describe Post do
 
   context 'origins' do
     it 'can come from Posterous' do
-      Factory.build(:post, :origin => 'posterous').posterous?.should eq(true)
+      FactoryGirl.build(:post, :origin => 'posterous').posterous?.should eq(true)
     end
     it 'can come from MovableType' do
-      Factory.build(:post, :origin => 'movabletype').movabletype?.should eq(true)
+      FactoryGirl.build(:post, :origin => 'movabletype').movabletype?.should eq(true)
     end
   end
 
  let(:type) { 'Post' }
-  let(:model) { Factory(:post) }
+  let(:model) { FactoryGirl.create(:post) }
   it_behaves_like "a type of moment"
 end
 # == Schema Information

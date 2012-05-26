@@ -1,10 +1,10 @@
 # encoding: utf-8
 Given /^I am an admin$/ do
-  @admin = Factory(:admin)
+  @admin = FactoryGirl.create(:admin)
 end
 
 Given /^I am a user$/ do
-  @user = Factory(:user)
+  @user = FactoryGirl.create(:user)
 end
 
 Given /^I am a guest$/ do
@@ -12,7 +12,7 @@ Given /^I am a guest$/ do
 end
 
 Given /^I am a signed in user$/ do
-  @user = Factory(:user)
+  @user = FactoryGirl.create(:user)
   visit new_user_session_url
   fill_in('Email', :with => @user.email)
   fill_in('Password', :with => "foobar")
@@ -21,7 +21,7 @@ Given /^I am a signed in user$/ do
 end
 
 Given /^I am an authenticated admin$/ do
-  @admin = Factory(:admin)
+  @admin = FactoryGirl.create(:admin)
   visit new_user_session_url
   fill_in('Email', :with => @admin.email)
   fill_in('Password', :with => "foobar")

@@ -5,7 +5,7 @@ describe ApplicationDecorator do
   before { ApplicationController.new.set_current_view_context }
 
   describe '#heading' do
-    let(:moment) { BeerDecorator.decorate(Factory.create(:beer)) }
+    let(:moment) { BeerDecorator.decorate(FactoryGirl.create(:beer)) }
     context 'index view' do
       it 'should be a link to moment' do
         moment.heading.should == "<a href=\"/beers/#{moment.id}\">#{moment.name}</a>"

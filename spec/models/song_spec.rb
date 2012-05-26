@@ -9,7 +9,7 @@ describe Song do
   end
 
   let(:type) { 'Song' }
-  let(:model) { Factory(:song) }
+  let(:model) { FactoryGirl.create(:song) }
   it_behaves_like "a type of moment"
 end
 # == Schema Information

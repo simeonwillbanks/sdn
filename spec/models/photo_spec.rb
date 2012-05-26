@@ -3,14 +3,14 @@ require 'spec_helper'
 
 describe Photo do
   context 'validations' do
-    before { Factory(:photo) }
+    before { FactoryGirl.create(:photo) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:origin_poid) }
     it { should validate_uniqueness_of(:origin_poid) }
   end
 
   let(:type) { 'Photo' }
-  let(:model) { Factory(:photo) }
+  let(:model) { FactoryGirl.create(:photo) }
   it_behaves_like 'a type of moment'
 end
 # == Schema Information

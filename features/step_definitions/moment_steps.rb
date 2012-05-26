@@ -1,7 +1,7 @@
 # encoding: utf-8
 Given /^I have a new "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
   # Build moment as a factory than coerce into a hash without primary key or timestamp members
-  hash = Factory.build(moment.to_sym, attribute.to_sym => value).serializable_hash(:except => [:id,:created_at,:updated_at])
+  hash = FactoryGirl.build(moment.to_sym, attribute.to_sym => value).serializable_hash(:except => [:id,:created_at,:updated_at])
   @moment = {moment.to_sym => hash}
 end
 
@@ -11,18 +11,18 @@ When /^I make an authenticated request to create the "([^"]*)"$/ do |moment|
 end
 
 When /^I visit a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
-  new_moment = Factory(moment.to_sym, attribute.to_sym => value)
+  new_moment = FactoryGirl.create(moment.to_sym, attribute.to_sym => value)
   @moment = moment == 'post' ? new_moment : new_moment.decorate
   visit send("#{moment}_url".to_sym, @moment) 
 end
 
 When /^I visit the index of "([^"]*)"$/ do |moments|
-  @moments = (0..10).inject([]) { |arr, n| arr << Factory(moments.singularize.to_sym).decorate }
+  @moments = (0..10).inject([]) { |arr, n| arr << FactoryGirl.create(moments.singularize.to_sym).decorate }
   visit send("#{moments}_url".to_sym)
 end
 
 When /^I know SDN has a "([^"]*)" with the "([^"]*)" "([^"]*)"$/ do |moment, attribute, value|
-  @moment = Factory(moment.to_sym, attribute.to_sym => value).decorate
+  @moment = FactoryGirl.create(moment.to_sym, attribute.to_sym => value).decorate
 end
 
 Then /^SDN displays the "([^"]*)"$/ do |moments|
@@ -75,7 +75,7 @@ Then /^the "([^"]*)" "([^"]*)" is shortened to an abstract$/ do |moment, attribu
 end
 
 When /^I visit a "([^"]*)"$/ do |moment|
-  @moment = Factory(moment.to_sym)
+  @moment = FactoryGirl.create(moment.to_sym)
   visit send("#{moment}_url".to_sym, @moment) 
 end
 

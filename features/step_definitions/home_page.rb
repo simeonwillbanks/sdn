@@ -4,6 +4,6 @@ When /^I visit the home page$/ do
 end
 
 When /^SDN has a variety of moments$/ do
-  @moments = (1..12).inject([]) { |arr, n| arr << Factory(:moment) }
+  @moments = (1..12).inject([]) { |arr, n| arr << FactoryGirl.create(:moment) }
 end
 

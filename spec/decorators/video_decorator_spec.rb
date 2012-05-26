@@ -3,8 +3,8 @@ require 'spec_helper'
 
 describe VideoDecorator do
   before { ApplicationController.new.set_current_view_context }
-  let(:youtube) { Factory.build(:video, :origin_poid => 'OaQsiEedR4o').decorate } 
-  let(:flickr) { Factory.build(:video, :origin => 'flickr', origin_poid: "2675040228").decorate }
+  let(:youtube) { FactoryGirl.build(:video, :origin_poid => 'OaQsiEedR4o').decorate } 
+  let(:flickr) { FactoryGirl.build(:video, :origin => 'flickr', origin_poid: "2675040228").decorate }
   
   it "has a Youtube permalink" do
     youtube.url.should eq('http://www.youtube.com/watch?v=OaQsiEedR4o')

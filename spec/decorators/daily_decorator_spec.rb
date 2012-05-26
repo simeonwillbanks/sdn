@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe DailyDecorator do
   before { ApplicationController.new.set_current_view_context }
-  let(:daily) { Factory.build(:daily, :created_at => DateTime.new(2001, 2, 3), :origin_poid => 42).decorate }
+  let(:daily) { FactoryGirl.build(:daily, :created_at => DateTime.new(2001, 2, 3), :origin_poid => 42).decorate }
 
   it "sets a pretty created at date" do
     daily.created_at.should eq("February 3, 2001")

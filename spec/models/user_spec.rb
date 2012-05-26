@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe User do
-  before { Factory(:user) }
+  before { FactoryGirl.create(:user) }
   it { should validate_presence_of(:name) }
   it { should_not allow_value("blah").for(:website) }
   it { should allow_value("http://simeons.net").for(:website) }

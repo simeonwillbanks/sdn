@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe Beer do
-  before { Factory(:beer) }
+  before { FactoryGirl.create(:beer) }
   context 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:brewery) }
@@ -14,7 +14,7 @@ describe Beer do
   end
 
   let(:type) { 'Beer' }
-  let(:model) { Factory(:beer) }
+  let(:model) { FactoryGirl.create(:beer) }
   it_behaves_like 'a type of moment'
 end
 # == Schema Information

@@ -5,7 +5,7 @@ describe PostDecorator do
   before { ApplicationController.new.set_current_view_context }
 
   describe '#body' do
-    let(:original) { Factory.build(:post, :body => Forgery(:lorem_ipsum).paragraphs(8)) }
+    let(:original) { FactoryGirl.build(:post, :body => Forgery(:lorem_ipsum).paragraphs(8)) }
     let(:posting) { PostDecorator.decorate(original) }
     context 'index action' do
       it 'should be no longer than 300 characters' do

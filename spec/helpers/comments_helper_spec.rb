@@ -13,7 +13,7 @@ require 'spec_helper'
 # end
 describe CommentsHelper do
   let(:moment_symbol) { :post }
-  let(:moment) { Factory(moment_symbol, :comments => [Factory(:comment)]) }
+  let(:moment) { FactoryGirl.create(moment_symbol, :comments => [FactoryGirl.create(:comment)]) }
   before(:each) do
     helper.stub(:resource).and_return(moment)
   end
