@@ -45,7 +45,7 @@ test:
   pool: 5
   username: simeon
   password:
-  min_messages: WARNING
+  min_messages: warning
   host: localhost
   port: 5432
 

@@ -64,7 +64,6 @@ group :development, :test do
   # https://github.com/k41n/spork/commit/838a4c9b52ddf127add80f019e097c36d1ffc15c
   gem 'spork', :git => 'git://github.com/k41n/spork.git'
   gem 'foreman'
-  gem 'silent-postgres'
   gem 'rb-fsevent'
   gem 'guard'
   gem 'guard-rspec'

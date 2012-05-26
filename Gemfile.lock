@@ -307,7 +307,6 @@ GEM
       rubyzip
     shoulda-matchers (1.1.0)
       activesupport (>= 3.0.0)
-    silent-postgres (0.1.1)
     simple_form (2.0.2)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -404,7 +403,6 @@ DEPENDENCIES
   ruby-oembed
   sass-rails
   shoulda-matchers
-  silent-postgres
   simple_form
   spork!
   therubyracer
