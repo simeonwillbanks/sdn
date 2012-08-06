@@ -1,6 +1,8 @@
 # encoding: utf-8
 Sdn::Application.routes.draw do
 
+  get "travels/index"
+
   resources :songs, :posts, :dailies, :photos, :videos, :beers, :only => [:index, :show, :create] do
     resources :comments, :only => [:create]
   end
