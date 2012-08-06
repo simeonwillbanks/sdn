@@ -2,7 +2,7 @@
 module ApplicationHelper
   def nav_item(name)
     content_tag(:li,
-                link_to(name.capitalize, :controller => name, :action => 'index'),
+                link_to(name.capitalize, :controller => "/#{name}", :action => 'index'),
                 :class => (controller.controller_name == name ? 'active' : nil))
   end
 
