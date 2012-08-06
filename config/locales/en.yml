@@ -7,7 +7,7 @@ en:
     actions:
       create:
         notice: '%{resource_name} was successfully created.'
-        alert: '%{resource_name} %{resource_error_message}.'
+        alert: '%{resource_name} could not be created.'
       update:
         notice: '%{resource_name} was successfully updated.'
       destroy:
